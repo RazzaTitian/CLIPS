@@ -13,7 +13,7 @@
          (junkfood 1 | 3))
     =>
     (assert (diagnose heartattack))
-    (printout t "Possible cancer risk, unknown type. You are going to die." crlf)
+    (printout t "Possible heart risk. Advise going to doctor for checkup and decreasing bad habits." crlf)
 )
 
 (defrule cancer
@@ -22,7 +22,7 @@
          (junkfood 1 | 3))
     =>
     (assert (diagnose cancer))
-    (printout t "Possible cancer risk, unknown type. You are going to die." crlf)
+    (printout t "Possible cancer risk, unknown type. Advise going to doctor for checkup and decreasing bad habits." crlf)
 )
 
 (defrule healthy
@@ -30,8 +30,8 @@
          (vape 2)
          (junkfood 2 | 3))
     =>
-    (assert (diagnose heartattack))
-    (printout t "Possible cancer risk, unknown type. You are going to die." crlf)
+    (assert (diagnose healthy))
+    (printout t "No possible attacks currently detected. Advise keeping up healthy lifestyle." crlf)
 )
 
 (defrule baselinehealthy
@@ -39,8 +39,8 @@
          (vape 2 | 3 )
          (junkfood 2 | 3))
     =>
-    (assert (diagnose heartattack))
-    (printout t "Possible cancer risk, unknown type. You are going to die." crlf)
+    (assert (diagnose baselinehealthy))
+    (printout t "Baseline health detected. Advise decreasing bad habits for improvement of quality." crlf)
 )
 
 (defrule input
@@ -51,5 +51,5 @@
     (assert (vape =(read)))
     (printout t crlf "Do you eat junk foods? 1 for yes, 2 for no, 3 for sometimes.")
     (assert (junkfood =(read)))
-    (printout t crlf "Rekomendasi Dokter Drago : " crlf)
+    (printout t crlf "Rekomendasi Dokter Abal : " crlf)
 )
